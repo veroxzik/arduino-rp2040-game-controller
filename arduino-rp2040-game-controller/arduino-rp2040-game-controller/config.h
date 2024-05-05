@@ -11,6 +11,9 @@ const uint16_t encoderPPR = 600;
 
 // Pins for your buttons.
 const uint8_t buttonPins[] = {4, 5, 6, 7, 8, 9, 10, 11, 12};
-uint8_t numButtons = sizeof(buttonPins) / sizeof(buttonPins[0]);
+const uint8_t numButtons = sizeof(buttonPins) / sizeof(buttonPins[0]);
+
+// Debounce time for buttons
+#define BUTTON_DEBOUNCE 5
 
 #endif

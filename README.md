@@ -7,8 +7,9 @@ Code for a Bemani-focused game controller targeting the RP2040 microcontroller.
 ## Pre-Requisites
 
 * Install the [Arduino IDE](https://www.arduino.cc/en/software). I recommend downloading 1.8.19 and running in [portable mode](https://docs.arduino.cc/software/ide-v1/tutorials/PortableIDE/), but 2.x should work without issue.
-* Install the [arduino-pico core](https://github.com/earlephilhower/arduino-pico?tab=readme-ov-file#installing-via-arduino-boards-manager) using the instructions in the README.
-* Install the [RPI_PICO_TimerInterrupt](https://github.com/khoih-prog/RPI_PICO_TimerInterrupt?tab=readme-ov-file#use-arduino-library-manager) library using the instructions in the README.
+* Install the [arduino-pico](https://github.com/earlephilhower/arduino-pico?tab=readme-ov-file#installing-via-arduino-boards-manager) core using the instructions in the README.
+* Install the [RPI_PICO_TimerInterrupt](https://github.com/khoih-prog/RPI_PICO_TimerInterrupt?tab=readme-ov-file#use-arduino-library-manager) library using the Arduino Library Manager or the instructions in the README.
+* Install the [Bounce2](https://github.com/thomasfredericks/Bounce2?tab=readme-ov-file#installation) library using the Arduino Library Manager or the instructions in the README.
 
 ## How to Use
 

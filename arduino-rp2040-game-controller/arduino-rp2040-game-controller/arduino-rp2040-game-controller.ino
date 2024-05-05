@@ -2,11 +2,14 @@
 #include "RPi_Pico_ISR_Timer.h"
 #include <Joystick.h>
 #include "config.h"
+#define BOUNCE_WITH_PROMPT_DETECTION
+#include <Bounce2.h>
 
 // Globals
 uint8_t state[] = {0, 0};
 int16_t position[] = {0, 0};
 long lastUpdate = 0;
+Bounce buttons[numButtons];
 
 // Encoder logic from PJRC Encoder library
 bool EncoderTimer(struct repeating_timer *t) {
@@ -55,7 +58,9 @@ void setup() {
 
   // Setup button pins
   for (uint8_t i = 0; i < numButtons; i++) {
-    pinMode(buttonPins[i], INPUT_PULLUP);
+    buttons[i] = Bounce();
+    buttons[i].attach(buttonPins[i], INPUT_PULLUP);
+    buttons[i].interval(BUTTON_DEBOUNCE);
   }
 
   // Setup timer
@@ -77,7 +82,8 @@ void loop() {
 
     // Read pins
     for (uint8_t i = 0; i < numButtons; i++) {
-      Joystick.button(i, digitalRead(buttonPins[i]) == LOW);
+      buttons[i].update();
+      Joystick.button(i, buttons[i].read() == LOW);
     }
 
     // Convert encoder to proper range
